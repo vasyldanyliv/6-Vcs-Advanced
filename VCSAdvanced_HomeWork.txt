@@ -1,0 +1,105 @@
+1)--------------------------------------------------
+$ git clone http://github.com/vasyldanyliv/6-vcs-advanced
+$ git checkout -b architecture
+$ mkdir assets
+$ mkdir uploads
+$ touch index.html
+$ vim index.html
+Hi!!!
+$ git add .
+git status
+$ git commit -m "created file structure and files"
+$ touch assets/all.js
+$ touch assets/css.js
+$ git add .
+$ git status
+$ git commit -m "created files in assets folder"
+$ git push origin architecture
+$ cd uploads
+$ touch .gitignore
+$ vim .gitignore
+(*
+!.gitignore) 
+$ git add .
+$ git commit -m "added gitignore file"
+$ git push origin architecture
+$ git checkout master
+$ git merge architecture
+$ git push
+$ git branch -d architecture
+$ git push origin :architecture
+----------------------------
+2)
+$ git checkout -b next_branch-method-rebase
+$ touch assets/test_file.js 
+and assets/testing.txt
+$ git add .
+$ git commit -m "created file assets/test_file.js and assets/testing.txt "
+$ git checkout next_branch-method-rebase
+$ git rebase master
+$ touch add.file
+$ touch add1.js
+$ git add .
+$ git commit -m "created files add.file and add.js"
+$ git checkout master
+$ git push
+$ git branch -d next_branch-method-rebase
+
+3)----------------------------------
+$ touch 7872_photo_w980.jpg
+$touch assets/in.html
+$ git status
+$ git tag v0.4
+$ git add .
+$ vim text.txt
+(Hello!!!)
+$ git commit -m "added files: image 7872_photo_w980, assets/in.html and changed empty file text.txt"
+$ git push origin v0.4
+$ git push
+-------------------------------------------------------------------
+4)
+$ git submodule add https://github.com/vasyldanyliv/6-vcs-advanced.git module
+$ git commit -m "added submodule"
+$ git push
+
+-----------------------------------------------------
+5)
+$ git checkout -b gh-pages
+$ vim index.html
+(Hi,everyone!!!
+ how r u?
+)
+$  git add .
+$ git commit -m "modified file index.html"
+------------------------------------------------------
+6)
+$ touch file.txt
+vim file.txt
+( Cursor
+)
+$ git add .
+$ git commit -m "added file.txt"
+$ git checkout -b ForConflict
+vim file.txt
+(
+EHHHHHH
+)
+$ git add .
+$ git commit -m "Modified file.txt on another content"
+$ git push origin ForConflict
+$ git checkout master
+$ git merge ForConflict
+Updating f732993..0374e11
+Fast-forward
+ file.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git merge --abort
+$ git merge ForConflict
+$ git status
+$ git add .
+$ git commit -m "Modified file.txt on another content"- here should have been 
+a commit that the
+ conflict was resolved, but I just copied the previous one
+$ git push
+
